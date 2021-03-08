@@ -1,9 +1,21 @@
-
-
+import 'package:apt_delievery/widgets/meal_card.dart';
+import 'package:apt_delievery/widgets/meals.dart';
 import 'package:apt_delievery/widgets/restaurant_card.dart';
 import 'package:flutter/material.dart';
 
+import 'cartScreen.dart';
+
 class Positions extends StatelessWidget {
+  List<Widget> meals = [
+    MealCard(
+      id: 1,
+      name: "БигМак",
+      title: "Очень вкусно",
+      imgPath: "assets/images/BigMac.jpg",
+      cost: 130,
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -12,23 +24,28 @@ class Positions extends StatelessWidget {
       ),
       body: Container(
         margin: EdgeInsets.all(10),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(
             'Меню',
-            style: TextStyle( fontSize: 24),
+            style: TextStyle(fontSize: 24),
             textAlign: TextAlign.left,
           ),
           SizedBox(height: 20),
           Expanded(
             child: ListView.builder(
-                itemCount: 2,
-                itemBuilder: (context, index){
-                  return Text('${index} gjitk yf[eq');
+                itemCount: 1,
+                itemBuilder: (context, index) {
+                  return meals[index];
                 }),
           ),
         ]),
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () => Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => new CartScreen())),
+        label: Text('В корзину'),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
