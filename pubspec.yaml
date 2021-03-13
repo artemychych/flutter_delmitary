@@ -32,6 +32,7 @@ dependencies:
   shared_preferences: any
   after_layout: any
   flutter_svg: any
+  intro_slider: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

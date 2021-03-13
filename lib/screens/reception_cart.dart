@@ -31,7 +31,9 @@ class _CartScreenState extends State<CartScreen> {
     }
 
     return new Scaffold(
-
+      appBar: new AppBar(
+        title: new Text('Корзина'),
+      ),
       body: Container(
         margin: EdgeInsets.all(10),
         child: ListView.builder(
@@ -56,8 +58,11 @@ class _CartScreenState extends State<CartScreen> {
       setState(() {
         cartItems = jsonDecode(cartString);
         cartItems.forEach(
-            (key, value) => cartList.add(CartItem(id: key, count: value)));
+                (key, value) => cartList.add(CartItem(id: key, count: value)));
       });
+
+      print(cartItems);
+      print(cartList);
     });
   }
 
@@ -68,12 +73,12 @@ class _CartScreenState extends State<CartScreen> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(
-              'Ваш заказ \n был успешно оформлен',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-              ),
-              textAlign: TextAlign.center,
+            'Ваш заказ \n был успешно оформлен',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+            textAlign: TextAlign.center,
           ),
           content: SingleChildScrollView(
             child: ListBody(

@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:after_layout/after_layout.dart';
+import 'package:apt_delievery/positions.dart';
+import 'package:apt_delievery/reception.dart';
 import 'package:apt_delievery/widgets/restaurant_card.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -33,9 +35,9 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
 
     if (_seen) {
       Navigator.of(context).pushReplacement(
-          new MaterialPageRoute(builder: (context) => new Restaurants()));
+          new MaterialPageRoute(builder: (context) => new Reception(0)));
     } else {
-      await prefs.setBool('seen', true);
+      // await prefs.setBool('seen', true);
       Navigator.of(context).pushReplacement(
           new MaterialPageRoute(builder: (context) => new IntroScreen()));
     }
@@ -48,7 +50,7 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new Center(
-        child: new Text('Loading...'),
+        child: new Text('Загрузка'),
       ),
     );
   }

@@ -3,6 +3,7 @@
 import 'package:apt_delievery/widgets/restaurant_card.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class Restaurants extends StatelessWidget {
   List<Widget> shops = [
     RestaurantCard(name: 'McDonalds', imgUrl: 'assets/images/mclogo.jpg'),
@@ -11,11 +12,8 @@ class Restaurants extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('Alp Delivery'),
-      ),
-      body: Container(
+    return new Container(
+
         margin: EdgeInsets.all(10),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -33,7 +31,7 @@ class Restaurants extends StatelessWidget {
                 }),
           ),
         ]),
-      ),
+
     );
   }
 }

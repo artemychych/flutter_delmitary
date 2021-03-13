@@ -1,3 +1,4 @@
+import 'package:apt_delievery/reception.dart';
 import 'package:apt_delievery/widgets/meal_card.dart';
 import 'package:apt_delievery/widgets/meals.dart';
 import 'package:apt_delievery/widgets/restaurant_card.dart';
@@ -11,7 +12,7 @@ class Positions extends StatelessWidget {
       id: 1,
       name: "БигМак",
       title: "Очень вкусно",
-      imgPath: "assets/images/BigMac.jpg",
+      imgPath: 'assets/images/BigMac.jpg',
       cost: 130,
     ),
   ];
@@ -42,7 +43,7 @@ class Positions extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => new CartScreen())),
+            .pushReplacement(MaterialPageRoute(builder: (context) => new Reception(3))),
         label: Text('В корзину'),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
