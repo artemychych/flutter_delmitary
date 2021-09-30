@@ -20,8 +20,8 @@ class RestaurantCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30), // if you need this
         side: BorderSide(
-        color: Colors.grey.withOpacity(0.2),
-        width: 1,
+          color: Colors.grey.withOpacity(0.2),
+          width: 1,
         ),
       ),
       child: InkWell(
@@ -35,35 +35,47 @@ class RestaurantCard extends StatelessWidget {
           width: double.infinity,
           height: 100,
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                child: Image.asset(imgUrl,
-                  width: 100,
-                  height: 100,
+                child: Image.asset(
+                  imgUrl,
+                  width: 80,
+                  height: 80,
                 ),
-
               ),
-              Container(
-                width: 200,
-                child: Center(
-                  child: Text(
-                    name,
-
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.bold,
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(right: 20),
+                    child: Text(
+                      name,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
+                  Container(
+                    margin: EdgeInsets.only(right: 20),
+                    child: Text(
+                      "20-30 мин.",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontFamily: 'Comfortaa',
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-
             ],
           ),
         ),
       ),
-
     );
   }
 }
-

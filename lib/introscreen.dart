@@ -1,6 +1,7 @@
 import 'package:apt_delievery/reception.dart';
 import 'package:apt_delievery/restaurants.dart';
 import 'package:flutter/material.dart';
+import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:intro_slider/slide_object.dart';
 
@@ -52,8 +53,14 @@ class _IntroScreenState extends State<IntroScreen> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('IntroScreen'),
+      appBar: GradientAppBar(
+        title: Text('IntroScreen'),
+        gradient: LinearGradient(
+          colors: [
+            Colors.cyan,
+            Colors.indigo,
+          ],
+        ),
       ),
       body: new Center(
         child: IntroSlider(

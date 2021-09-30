@@ -1,7 +1,7 @@
 import 'package:apt_delievery/cartScreen.dart';
 import 'package:apt_delievery/couriers.dart';
 import 'package:apt_delievery/restaurants.dart';
-
+import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'orders.dart';
@@ -49,8 +49,14 @@ class _ReceptionState extends State<Reception> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Apl Delivery"),
+      appBar: GradientAppBar(
+        title: Text('Delmitary'),
+        gradient: LinearGradient(
+          colors: [
+            Colors.cyan,
+            Colors.indigo,
+          ],
+        ),
       ),
       body: PageView(
         children: _widgetOptions,
@@ -61,7 +67,7 @@ class _ReceptionState extends State<Reception> {
         currentIndex: _selectedIndex,
         onTap: onTabTapped,
         unselectedItemColor: Colors.blueAccent,
-        selectedItemColor: Colors.amber,
+        selectedItemColor: Colors.indigo,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.local_mall), title: Text("Рестораны")),
           BottomNavigationBarItem(icon: Icon(Icons.reorder), title: Text("Заказы")),
