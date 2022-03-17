@@ -33,6 +33,7 @@ dependencies:
   after_layout: any
   flutter_svg: any
   intro_slider: any
+  http: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -52,6 +53,7 @@ flutter:
 
   assets:
    - assets/images/
+   - assets/images/auth/
 
   #   - images/a_dot_ham.jpeg
 

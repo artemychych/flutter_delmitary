@@ -50,7 +50,7 @@ class _ReceptionState extends State<Reception> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: GradientAppBar(
-        title: Text('Delmitary'),
+        title: Image.asset('assets/images/delmitary.png', height: 30,),
         gradient: LinearGradient(
           colors: [
             Colors.cyan,

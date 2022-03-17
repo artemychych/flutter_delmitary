@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:after_layout/after_layout.dart';
+import 'package:apt_delievery/auth/load_screen.dart';
 import 'package:apt_delievery/positions.dart';
 import 'package:apt_delievery/reception.dart';
 import 'package:apt_delievery/widgets/restaurant_card.dart';
@@ -34,8 +35,8 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
     bool _seen = (prefs.getBool('seen') ?? false);
 
     if (_seen) {
-      Navigator.of(context).pushReplacement(
-          new MaterialPageRoute(builder: (context) => new Reception(0)));
+      Navigator.of(context).pushReplacement(new MaterialPageRoute(
+          builder: (context) => new LoadScreen()));
     } else {
       // await prefs.setBool('seen', true);
       Navigator.of(context).pushReplacement(
@@ -50,7 +51,7 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new Center(
-        child: new Text('Загрузка'),
+        child: new LoadScreen(),
       ),
     );
   }

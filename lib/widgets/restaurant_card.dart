@@ -4,12 +4,11 @@ import '../models/restaurant.dart';
 import '../positions.dart';
 
 class RestaurantCard extends StatelessWidget {
-  final String name;
-  final String imgUrl;
+  final Restaurant restaurant;
 
   RestaurantCard({
-    @required this.name,
-    @required this.imgUrl,
+    @required this.restaurant,
+
   });
 
   @override
@@ -38,8 +37,8 @@ class RestaurantCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                child: Image.asset(
-                  imgUrl,
+                child: Image.network(
+                  restaurant.icon,
                   width: 80,
                   height: 80,
                 ),
@@ -51,7 +50,7 @@ class RestaurantCard extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(right: 20),
                     child: Text(
-                      name,
+                      restaurant.name,
                       style: TextStyle(
                         fontSize: 20,
                         fontFamily: 'Roboto',

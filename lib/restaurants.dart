@@ -1,12 +1,11 @@
 import 'package:apt_delievery/widgets/restaurant_card.dart';
 import 'package:flutter/material.dart';
+import 'package:apt_delievery/api/restaurants.dart';
+import 'package:http/http.dart' as http;
 
 // ignore: must_be_immutable
 class Restaurants extends StatelessWidget {
-  List<Widget> shops = [
-    RestaurantCard(name: 'McDonalds', imgUrl: 'assets/images/mclogo.jpg'),
-    RestaurantCard(name: 'Пятёрочка', imgUrl: 'assets/images/logo_5ka.png')
-  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +34,28 @@ class Restaurants extends StatelessWidget {
         ),
         SizedBox(height: 10),
         Expanded(
-          child: ListView.builder(
-              itemCount: 2,
-              itemBuilder: (context, index) {
-                return shops[index];
+          child: FutureBuilder<List<dynamic>>(
+              future: getRestaurantsList(http.Client()),
+              builder: (context, snapshot) {
+                print(snapshot.data);
+                if (snapshot.hasError) {
+                  return const Center(
+                    child: Text('An error has occurred!'),
+                  );
+                } else if (snapshot.hasData) {
+                  return Container(
+                    height: 400,
+                    child: ListView.builder(
+                        itemCount: snapshot.data.length,
+                        itemBuilder: (context, index) {
+                          return RestaurantCard(restaurant: snapshot.data[index]);
+                        }),
+                  );
+                } else {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
               }),
         ),
       ]),
